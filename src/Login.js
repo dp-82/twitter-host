@@ -8,7 +8,7 @@ import { IconContext } from 'react-icons'
 import { Row, Col, Form } from 'react-bootstrap'
 
 const SUCCESS_LOGIN = "User details are correct";
-const baseUrl = 'http://15.207.66.46/';
+const baseUrl = 'https://15.207.66.46/';
 
 class Login extends React.Component {
 
