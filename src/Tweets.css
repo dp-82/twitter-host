@@ -1,0 +1,235 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.main{
+  display: flex;
+}
+
+.first{
+  width: 30%;
+  padding-left: 10%;
+  padding-top: 2%;
+  overflow-y: scroll;
+  height:calc(100vh);
+}
+
+.second{
+  border-left: 1px solid aqua;
+  border-right: 1px solid aqua;
+  width: 40%;
+  /* background-color: aqua; */
+  /* overflow-y: scroll; */
+  height:calc(100vh)
+}
+
+.divProfile{
+  height: calc(100vh);
+  overflow-y: scroll;
+}
+.third{
+  width: 30%;
+  margin: 0;
+  padding: 0%;
+  /* overflow-y: scroll; */
+  height:calc(100vh);
+}
+
+.nothing{
+  height: 4%;
+  padding: 1%;
+  padding-left: 2%;
+  width: 100%;
+  /* background-color:rgb(0, 123, 255); */
+  /* color: rgb(0, 123, 255); */
+  border-bottom: 1px solid aqua;
+  margin: 0%;
+}
+
+::-webkit-scrollbar {
+    width: 0.1rem;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+
+
+.tweets {
+  width: 100%;
+  text-align: center;
+  overflow-y: scroll;
+  height:calc(96vh);
+  padding: 0%;
+  margin: 0%;
+  /* background-color: aqua; */
+
+}
+
+.tweet {
+  padding: 0.5%;
+  /* margin: 0.5%; */
+  width: 100%;
+  background-color: white;
+  border-bottom: 0.05rem solid aqua;
+  text-align: start;
+}
+
+.tweet p {
+  margin-top: 0.2%;
+  padding: 1%;
+  word-break: break-all;
+    white-space: normal;
+}
+
+
+.profile-info {
+  margin: 1%;
+  padding: 3%;
+  width: 98%;
+  max-height: 20%;
+  background-color: white;
+  border-radius: 1rem;
+  /* border: 1px solid black; */
+}
+
+.profile-info h4{
+  max-height: 10%;
+  margin: 2%;
+}
+
+.my-thing {
+  margin-top: 2rem;
+  padding: 0.5rem;
+  margin: 5rem;
+  margin-right: 4rem;
+  margin-left: 3rem;
+  width: 20rem;
+  float: left;
+  text-align: center;
+
+}
+
+.people {
+  background-color: white;
+  /* border-radius: 2%; */
+  text-align: start;
+  padding: 3%;
+  max-height: 30%;
+  width: 100%;
+  /* border : 1px solid black; */
+  overflow-y: scroll;
+  height: calc(30vh);
+}
+
+.person{
+  max-height: 10%;
+  margin: 1%;
+}
+
+.third h2 , .first h2{
+  max-height: 5%;
+  text-align: center;
+  padding: 2%;
+  margin: 1%;
+}
+.person h4 {
+  /* max-height: 5%; */
+  display: inline-block;
+}
+
+.person button , .rem button{
+    /* max-height: 25%; */
+  height: 80%;
+  width: 20%;
+  float: right;
+  color: white;
+  background-color: rgb(138, 138, 168);
+  /* box-sizing: border-box; */
+  border-radius: 0.5rem;
+}
+
+.addTweet {
+  bottom: 0;
+  width: 90%;
+  color: white;
+  text-align: center;
+  margin-top: 2%;
+  padding: 5%;
+  height: 30%;
+  text-align: center;
+}
+
+.addTweet textarea {
+  margin: 2%;
+  border-radius: 1rem;
+  padding: 2%;
+  font-size: 1.6rem;
+  width: 80%;
+  max-height: 70%;
+}
+
+.addTweet button {
+  margin: 1rem;
+  height: 2rem;
+  width: 5rem;
+  max-height: 10%;
+  border-radius: 1rem;
+}
+
+
+.tweetNew{
+  width: 100%;
+  max-height: 10rem;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: rgb(71, 47, 60);
+}
+
+.first img{
+  width: 20%;
+  height: 15%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+
+
+/* 
+Profile.js styles here
+*/
+
+
+
+.profile-tweet-rem{
+  max-height: 50%;
+}
+
+.profile-tweet-rem button{
+  float: right;
+  max-height: 30%;
+  border-radius: 1rem;
+  font-size: 1rem;
+  background-color: gray;
+  color: white;
+  width: 10%;
+}
+
+.part{
+  padding: 0.5%;
+}
+.part h4 {
+  float: left;
+}
+
+.part h6{
+  float: right;
+}
+
+
