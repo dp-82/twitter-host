@@ -30,7 +30,7 @@ const Tweets = (args) => {
 
     let query_component = <Home />;
     for (var i = 0; i < items.length; i++) {
-        if (items[i][1].toLowerCase() == query) {
+        if (items[i][1].toLowerCase() === query) {
             items[i][4] = 'blue';
         }
     }
@@ -138,7 +138,7 @@ const Tweets = (args) => {
             <div className="first">
                 <Row>
                     <Col></Col>
-                    <Col sm={8} style={{ marginTop: '10%', marginLeft: '0%' }}>
+                    <Col sm={9} style={{ marginTop: '10%', marginLeft: '0%' }}>
                         <IconContext.Provider value={{ style: { fontSize: '50px', color: "rgb(0, 123, 255)" } }}>
                             <div>
                                 <FaTwitter />
@@ -159,7 +159,7 @@ const Tweets = (args) => {
 
                                             </Col>
                                             <Col>
-                                                <h4>{data[1]}</h4>
+                                                <h5>{data[1]}</h5>
                                             </Col>
                                         </Row>
                                         {/* <IconContext.Provider value={{ style: { fontSize: '30px', textAlign: 'center' } }}>
@@ -200,15 +200,15 @@ const Tweets = (args) => {
                 }
             </div>
             <div className="third">
-                <h4 className="nothing">People</h4>
+                <h5 className="nothing">People</h5>
                 <div className="overflow-auto" style={{ padding: '1%', overflowY: 'scroll', height: 'calc(95vh)' }}>
                     {
                         peopleData.map(
                             (value) => (
                                 <Row key={value[0]} style={{ margin: "1%", marginTop: '3%' }}>
-                                    <Col><h5>{value[1]}</h5></Col>
+                                    <Col><h6>{value[1]}</h6></Col>
                                     <Col>
-                                        <Button onClick={() => updateFollowingStatus(value[0], 1 - value[2])} variant={(value[2] === 1) ? "info" : "outline-info"} size="sm" style={{ borderRadius: '2rem' }}>
+                                        <Button onClick={() => updateFollowingStatus(value[0], 1 - value[2])} variant={(value[2] === 1) ? "info" : "outline-info"} size="sm" style={{ borderRadius: '2rem',padding:'1%' }}>
                                             &nbsp;{['Follow', 'Following'][value[2]]}&nbsp;
                                         </Button>
                                     </Col>

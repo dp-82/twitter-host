@@ -1,10 +1,9 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import './Tweets.css'
-import { Link } from 'react-dom'
-import { Button, Card, Modal, Row, Col, Container } from 'react-bootstrap';
+import { Button, Card, Row, Col, Container } from 'react-bootstrap';
 import { IconContext } from 'react-icons';
-import { FaUserCircle, FaMobile } from 'react-icons/fa';
+import { FaUserCircle } from 'react-icons/fa';
 
 const ERR_CON = "Connecting to MySQL failed";
 const ERR_QUERY = "Query Execution Failed";
@@ -28,7 +27,7 @@ const getDateDisplayFormatString = (timestamp) => {
         display += parseInt(dif_minutes) + 'm';
     } else if (parseInt(dif_hours) < 24) {
         display += parseInt(dif_hours) + 'h';
-    } else if (cur_date.getFullYear() == year) {
+    } else if (cur_date.getFullYear() === year) {
         display += monthNames[parseInt(month) - 1] + ' ' + date;
     } else {
         display += monthNames[parseInt(month) - 1] + ' ' + date + ',' + year;
@@ -43,7 +42,7 @@ const Profile = () => {
     }
     const [profileData, setProfileData] = useState({});
     const [tweets, setTweets] = useState([]);
-    const [show, setShow] = useState(false);
+    // const [show, setShow] = useState(false);
 
     //get profile information
     useEffect(() => {

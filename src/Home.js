@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import './Tweets.css'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap';
-import { FaUser, FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
 
 const baseUrl = 'http://15.207.66.46/';
@@ -25,7 +25,7 @@ const getDateDisplayFormatString = (timestamp) => {
         display += parseInt(dif_minutes) + 'm';
     } else if (parseInt(dif_hours) < 24) {
         display += parseInt(dif_hours) + 'h';
-    } else if (cur_date.getFullYear() == year) {
+    } else if (cur_date.getFullYear() === year) {
         display += monthNames[parseInt(month) - 1] + ' ' + date;
     } else {
         display += monthNames[parseInt(month) - 1] + ' ' + date + ',' + year;
@@ -61,7 +61,7 @@ const Home = () => {
 
     return (
         <>
-            <h4 className="nothing">Home</h4>
+            <h5 className="nothing">Home</h5>
             <div className="tweets">
                 {
                     tweets.filter((data) => data.username !== username).map((data) =>
@@ -79,16 +79,16 @@ const Home = () => {
                                         <Row>
                                             <Col>
                                                 <div>
-                                                    <h5 style={{ float: 'left' }}>{data.name}</h5>
-                                                    <h6 style={{ fontFamily: 'monospace', padding: '1%' }}>{'@' + data.username}</h6>
+                                                    <h6 style={{ float: 'left' }}>{data.name}</h6>
+                                                    <h6 style={{ fontFamily: 'monospace', padding: '0.7%',fontSize:'14px' }}>{'@' + data.username}</h6>
                                                 </div>
 
                                             </Col>
-                                            <Col sm={2} style={{ padding: '1%' }}><h6 style={{ textAlign: 'end', fontFamily: 'monospace' }}>{getDateDisplayFormatString(data.timestamp)}</h6></Col>
+                                            <Col sm={2} style={{ padding: '1%' }}><h6 style={{ textAlign: 'end', fontFamily: 'monospace',fontSize:'14px' }}>{getDateDisplayFormatString(data.timestamp)}</h6></Col>
 
                                         </Row>
                                         <Row>
-                                            <p style={{ wordBreak: 'break-all', whiteSpace: 'normal', fontWeight: 'normal' }}>{data.tweet}</p>
+                                            <p style={{ wordBreak: 'break-all', whiteSpace: 'normal', fontWeight: 'normal' , fontSize:'16px'}}>{data.tweet}</p>
                                         </Row>
                                     </Col>
 

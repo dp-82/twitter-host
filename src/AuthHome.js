@@ -8,7 +8,7 @@ const AuthHome = () => {
         window.location.href = '/home';
     }
 
-    window.location.href = '/login';
+    // window.location.href = '/login';
 
     return (
         <div className="auth-home">
