@@ -9,6 +9,7 @@ import { Modal, Button, Row, Col } from 'react-bootstrap';
 import { IconContext } from 'react-icons';
 import { FaTwitter } from 'react-icons/fa';
 import { BiHomeCircle, BiUser, BiMessageRoundedDots, BiBell, BiLogOut, BiWorld } from 'react-icons/bi';
+import AnotherUserProfile from './AnotherUserProfile';
 
 const ERR_CON = "Connecting to MySQL failed";
 const ERR_QUERY = "Query Execution Failed";
@@ -42,6 +43,8 @@ const Tweets = (args) => {
         const postId = query.split('-')[1];
         sessionStorage.setItem('tid', postId);
         query_component = <Post postId={postId} />
+    }else if(query!=="home" && query!="explore" && query!="messages" && query!="notifications" && query!=username){
+        query_component = <AnotherUserProfile reqUserProfile={query}/>
     }
 
     const [peopleData, setPeopleData] = useState([]);
@@ -206,7 +209,7 @@ const Tweets = (args) => {
                         peopleData.map(
                             (value) => (
                                 <Row key={value[0]} style={{ margin: "1%", marginTop: '3%' }}>
-                                    <Col><h6>{value[1]}</h6></Col>
+                                    <Col><Link to={'/'+value[0]} style={{textDecoration:'none',color:'black'}}><h6>{value[1]}</h6></Link></Col>
                                     <Col>
                                         <Button onClick={() => updateFollowingStatus(value[0], 1 - value[2])} variant={(value[2] === 1) ? "info" : "outline-info"} size="sm" style={{ borderRadius: '2rem',padding:'1%' }}>
                                             &nbsp;{['Follow', 'Following'][value[2]]}&nbsp;

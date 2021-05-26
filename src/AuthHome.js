@@ -20,10 +20,10 @@ const AuthHome = () => {
                 <h1>Happening now</h1>
                 <h2>Join Twitter today.</h2>
                 <Link to="/register" style={{ textDecoration: 'none' }}>
-                    <h4 className="signUp">Sign up</h4>
+                    <h5 className="signUp">Sign up</h5>
                 </Link><br />
                 <Link to="/login" style={{ textDecoration: 'none' }}>
-                    <h4 className="logIn">Log in</h4>
+                    <h5 className="logIn">Log in</h5>
                 </Link>
 
             </div>

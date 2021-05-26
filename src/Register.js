@@ -27,6 +27,18 @@ class Register extends React.Component {
             alert('please enter all required feilds');
             return;
         }
+        if(this.state.username.trim().length>15){
+            alert('username should be less than or equal to 15 characters');
+            return;
+        }
+        if(this.state.name.trim().length>30){
+            alert('name should be less than or equal to 30 characters');
+            return;
+        }
+        if(this.state.phone.trim().length!=10){
+            alert('phone number must be 10 characters');
+            return;
+        }
         let formData = new FormData();
         const username = this.state.username.trim();
         formData.append('username', this.state.username.trim());
@@ -57,14 +69,14 @@ class Register extends React.Component {
             <div style={{ width: '100%', height: '100%' }}>
                 <Row style={{ width: '100%', height: '100%' }}>
                     <Col></Col>
-                    <Col style={{ width: '33%', padding: '2%' }}>
+                    <Col style={{ width: '50%', padding: '2%' }}>
                         <IconContext.Provider value={{ style: { fontSize: '50px', color: "rgb(0, 123, 255)" } }}>
                             <div>
                                 <FaTwitter />
                             </div>
                         </IconContext.Provider>
                         <h3 style={{ marginTop: '3%' }}>Sign up for Twitter</h3>
-                        <Form style={{ width: "70%" }}>
+                        <Form style={{ width: "100%" }}>
                             <Form.Group>
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control type="text" placeholder="Enter username" value={this.state.username} onChange={(e) => this.setState({ username: e.target.value })} />
@@ -93,7 +105,7 @@ class Register extends React.Component {
                             <Button onClick={(e) => this.registerHandler(e)} style={{ borderRadius: '2rem', backgroundColor: 'rgb(0, 123, 255)', width: '100%', height: '2.5rem' }}>Sign up</Button> <br />
 
                         </Form><br />
-                        <Link to="/login" style={{ textDecoration: 'none' }}><h6 style={{ marginLeft: '9rem', fontWeight: 'normal' }}>Log in for Twitter</h6></Link>
+                        <Link to="/login" style={{ textDecoration: 'none' }}><h6 style={{textAlign:'center', fontWeight: 'normal' }}>Log in for Twitter</h6></Link>
                     </Col>
                     <Col></Col>
                 </Row>

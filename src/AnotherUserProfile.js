@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import './Tweets.css'
+import {Link} from 'react-router-dom'
 import { Button, Card, Row, Col, Container } from 'react-bootstrap';
 import { IconContext } from 'react-icons';
 import { FaUserCircle } from 'react-icons/fa';
@@ -35,18 +36,20 @@ const getDateDisplayFormatString = (timestamp) => {
     return display;
 }
 
-const Profile = () => {
-    const username = sessionStorage.getItem('username');
+const AnotherUserProfile = (props) => {
+    let username = sessionStorage.getItem('username');
     if (username === null) {
         window.location.href = '/';
     }
+    username = props.reqUserProfile;
+
     const [profileData, setProfileData] = useState({});
     const [tweets, setTweets] = useState([]);
     // const [show, setShow] = useState(false);
 
     //get profile information
     useEffect(() => {
-        const username = sessionStorage.getItem('username');
+        // const username = sessionStorage.getItem('username');
         let formData = new FormData();
         formData.append('username', username);
         formData.append('type', 'Profile');
@@ -82,27 +85,6 @@ const Profile = () => {
         });
     }, [tweets]);
 
-    const deleteTweet = (tid) => {
-        let formData = new FormData();
-        formData.append('tid', tid);
-        formData.append('type', 'DeleteTweet');
-        axios({
-            method: 'post',
-            url: baseUrl + 'tweets.php',
-            data: formData,
-            config: { headers: { 'Content-Type': 'multipart/form-data' } }
-        }).then(function (response) {
-            console.log(response.data);
-            if (response.data === ERR_CON || response.data === ERR_QUERY) {
-                alert('Some error occured');
-            } else {
-                window.location.reload();
-            }
-        }).catch(function (response) {
-            console.log(response)
-            alert('Some error occured');
-        });
-    }
 
     return (
         <div className="divProfile">
@@ -135,41 +117,37 @@ const Profile = () => {
             <div className="tweets" style={{ height: 'calc(68vh)' }}>
                 {
                     tweets.filter((data) => data.username === username).map((data) =>
-                        <Container style={{ borderBottom: '0.5px solid aqua' }}>
-                            <Row>
-                                <Col sm='1' style={{ padding: '2%', paddingTop: '1%' }}>
-                                    <IconContext.Provider value={{ style: { fontSize: '40px', color: "rgb(34, 72, 112)" } }}>
-                                        <div>
-                                            <FaUserCircle />
-                                        </div>
-                                    </IconContext.Provider>
-
-                                    {/* <img src="tiniLogo.png" alt="dp" style={{ height: '2rem' }} /> */}
-                                </Col>
-                                <Col style={{ textAlign: 'start', padding: '1%' }}>
-                                    <Row>
-                                        <Col>
+                    <Link to={'/post-' + data.tid} style={{ textDecoration: "None", color: "inherit" }} key={data.tid}>
+                            <Container style={{ borderBottom: '0.5px solid aqua' }}>
+                                <Row>
+                                    <Col sm='1' style={{ padding: '2%', paddingTop: '1%' }}>
+                                        <IconContext.Provider value={{ style: { fontSize: '40px', color: "rgb(34, 72, 112)" } }}>
                                             <div>
-                                                <h6 style={{ float: 'left' }}>{data.name}</h6>
-                                                <h6 style={{ fontFamily: 'monospace', padding: '0.7%',fontSize:'14px'}}>{'@' + data.username}</h6>
+                                                <FaUserCircle />
                                             </div>
+                                        </IconContext.Provider>
+                                    </Col>
+                                    <Col style={{ textAlign: 'start', padding: '1%' }}>
+                                        <Row>
+                                            <Col>
+                                                <div>
+                                                    <h6 style={{ float: 'left' }}>{data.name}</h6>
+                                                    <h6 style={{ fontFamily: 'monospace', padding: '0.7%',fontSize:'14px' }}>{'@' + data.username}</h6>
+                                                </div>
 
-                                        </Col>
-                                        <Col sm={2} style={{ padding: '1%' }}><h6 style={{ textAlign: 'end', fontFamily: 'monospace',fontSize:'14px' }}>{getDateDisplayFormatString(data.timestamp)}</h6></Col>
+                                            </Col>
+                                            <Col sm={2} style={{ padding: '1%' }}><h6 style={{ textAlign: 'end', fontFamily: 'monospace',fontSize:'14px' }}>{getDateDisplayFormatString(data.timestamp)}</h6></Col>
 
-                                    </Row>
-                                    <Row>
-                                        <p style={{ wordBreak: 'break-all', whiteSpace: 'normal', fontWeight: 'normal',fontSize:'16px' }}>{data.tweet}</p>
-                                    </Row>
-                                    <Row>
-                                        <Col><Button onClick={() => { window.location.href = '/post-' + data.tid }} variant='outline-info' style={{ borderRadius: '2rem',fontSize:'12px' }}>View</Button></Col>
-                                        <Col><Button onClick={() => deleteTweet(data.tid)} variant='outline-info' style={{ float: 'right', borderRadius: '2rem' ,fontSize:'12px'}}>delete</Button></Col>
-                                    </Row>
-                                </Col>
+                                        </Row>
+                                        <Row>
+                                            <p style={{ wordBreak: 'break-all', whiteSpace: 'normal', fontWeight: 'normal' , fontSize:'16px'}}>{data.tweet}</p>
+                                        </Row>
+                                    </Col>
 
-                            </Row>
+                                </Row>
 
-                        </Container>
+                            </Container>
+                        </Link>
                     )
                 }
 
@@ -178,4 +156,4 @@ const Profile = () => {
     )
 }
 
-export default Profile
+export default AnotherUserProfile

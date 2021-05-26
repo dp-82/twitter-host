@@ -71,14 +71,14 @@ class Login extends React.Component {
             <div style={{ width: '100%', height: '100%' }}>
                 <Row style={{ width: '100%', height: '100%' }}>
                     <Col></Col>
-                    <Col style={{ width: '33%', padding: '2%' }}>
+                    <Col style={{ width: '50%', padding: '2%' }}>
                         <IconContext.Provider value={{ style: { fontSize: '50px', color: "rgb(0, 123, 255)" } }}>
                             <div>
                                 <FaTwitter />
                             </div>
                         </IconContext.Provider>
                         <h3 style={{ marginTop: '3%' }}>Log in to Twitter</h3>
-                        <Form style={{ width: "60%" }}>
+                        <Form style={{ width: "100%" }}>
                             <Form.Group>
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control type="text" placeholder="Enter username" value={this.state.username} onChange={(e) => this.setState({ username: e.target.value })} />
@@ -92,7 +92,7 @@ class Login extends React.Component {
                             <Button onClick={(e) => this.loginHandler(e)} style={{ borderRadius: '2rem', backgroundColor: 'rgb(0, 123, 255)', width: '100%', height: '2.5rem' }}>Log in</Button> <br />
 
                         </Form><br />
-                        <Link to="/register" style={{ textDecoration: 'none' }}><h6 style={{ marginLeft: '7rem', fontWeight: 'normal' }}>Sign up for Twitter</h6></Link>
+                        <Link to="/register" style={{ textDecoration: 'none' }}><h6 style={{  fontWeight: 'normal',textAlign:'center' }}>Sign up for Twitter</h6></Link>
                     </Col>
                     <Col></Col>
                 </Row>
