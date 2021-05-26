@@ -1,6 +1,7 @@
 import React from 'react'
 import './index.css';
 import { Link } from 'react-router-dom';
+import { FaTwitter } from 'react-icons/fa'
 
 const AuthHome = () => {
 
@@ -9,7 +10,7 @@ const AuthHome = () => {
     }
 
     // window.location.href = '/login';
-
+    document.title="Twitter.It's what's happening / Twitter";
     return (
         <div className="auth-home">
             <div className="auth-home-left">

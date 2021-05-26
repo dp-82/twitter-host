@@ -46,7 +46,7 @@ const AnotherUserProfile = (props) => {
     const [profileData, setProfileData] = useState({});
     const [tweets, setTweets] = useState([]);
     // const [show, setShow] = useState(false);
-
+    document.title=profileData.name+"(@"+profileData.username+")"+" / Twitter";
     //get profile information
     useEffect(() => {
         // const username = sessionStorage.getItem('username');

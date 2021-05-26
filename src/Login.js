@@ -15,6 +15,7 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
         if (sessionStorage.getItem('username') != null) window.location.href = '/home';
+        document.title="Login on Twitter / Twitter";
     }
     state = {
         username: "",

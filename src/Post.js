@@ -23,6 +23,7 @@ const Post = () => {
     }
     const [post, setPost] = useState([]);
     //get tweets
+    document.title=post.name+" on Twitter:"+'"'+post.tweet+'"';
     useEffect(() => {
         const tid = sessionStorage.getItem('tid');
         let formData = new FormData();

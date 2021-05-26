@@ -12,6 +12,11 @@ const baseUrl = 'http://15.207.66.46/';
 
 class Register extends React.Component {
 
+    constructor(props){
+        super(props)
+        if (sessionStorage.getItem('username') != null) window.location.href = '/home';
+        document.title="Sign up for Twitter / Twitter";
+    }
     state = {
         username: "",
         password: "",

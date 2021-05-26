@@ -7,7 +7,8 @@ import Profile from './Profile';
 import Post from './Post';
 import { Modal, Button, Row, Col } from 'react-bootstrap';
 import { IconContext } from 'react-icons';
-import { FaTwitter } from 'react-icons/fa';
+import { FaTwitter,FaUserFriends } from 'react-icons/fa';
+
 import { BiHomeCircle, BiUser, BiMessageRoundedDots, BiBell, BiLogOut, BiWorld } from 'react-icons/bi';
 import AnotherUserProfile from './AnotherUserProfile';
 
@@ -203,7 +204,13 @@ const Tweets = (args) => {
                 }
             </div>
             <div className="third">
-                <h5 className="nothing">People</h5>
+                <div className="nothing">
+                    <IconContext.Provider value={{ style: { fontSize: '30px',display:'inline',paddingBottom:'1%' }}}>
+                        <FaUserFriends/>
+                    </IconContext.Provider>
+                    <h5 style={{display:'inline' , padding:'1%'}}>People</h5>
+                </div>
+                
                 <div className="overflow-auto" style={{ padding: '1%', overflowY: 'scroll', height: 'calc(95vh)' }}>
                     {
                         peopleData.map(

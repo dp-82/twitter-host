@@ -39,6 +39,7 @@ const Home = () => {
     if (username === null) {
         window.location.href = '/';
     }
+    document.title="Home"+" / Twitter";
     const [tweets, setTweets] = useState([]);
     //get tweets
     useEffect(() => {
